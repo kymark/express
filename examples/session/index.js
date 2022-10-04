@@ -11,12 +11,13 @@ var express = require('../..');
 var session = require('express-session');
 
 var app = express();
+const sessionSecret = 'keyboard cat'
 
 // Populates req.session
 app.use(session({
   resave: false, // don't save session if unmodified
   saveUninitialized: false, // don't create session until something stored
-  secret: 'keyboard cat'
+  secret: sessionSecret
 }));
 
 app.get('/', function(req, res){
